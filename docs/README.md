@@ -1,38 +1,18 @@
 ---
 home: true
-actionText: Get Started →
-actionLink: /custom-components/
+heroImage: /llz_avatar.png
+heroText: 李连政的个人博客
+# tagline: Hero 副标题
+actionText: 程序员导航 ->
+actionLink: /tech-resource/
 features:
-- title: Admonitions and Tables
-  details: Uses google material icons and sortable tables
-- title: Charts and Math
-  details: Leverage chartjs and katex 
-- title: Diagramming tools
-  details: Integrated with mermaid and plantuml
-footer: MIT Licensed | Copyright © 2019-present David Li
+- title: 程序员导航
+  details: 优秀博客、高质量图片资源、在线学习网站、免费破解软件、教程
+- title: 个人项目
+  details: 个人项目介绍
+- title: 团队管理
+  details: 团队管理介绍
+footer:  李连政 | Thanks vuepress、vuepress-theme-cool、tailwindcss!
 ---
 
 
-## Disclaimer
-
-Currently updated to Vuepress theme V1, issues may arise. This repo has installed `vuepress-theme-cool@1.2.0`
-
-[![Build Status](https://travis-ci.org/FriendlyUser/vuepress-theme-cool-starter.svg?branch=master)](https://travis-ci.org/FriendlyUser/vuepress-theme-cool-starter)
-## ReadMe 
-
-This is an example of how to use the `vuepress-theme-cool` vuepress theme, look into docs for example files.
-
-## Installation and Running
-
-To install:
-
-`npm install`
-
-To run:
-
-`npm run docs:dev`
-
-
-## Customization
-
-Most of the customization is done in `config.js`, automatic navbar and sidebar navigation is available in `config-other.js`

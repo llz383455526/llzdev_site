@@ -1,60 +1,130 @@
 // .vuepress/config.js
 module.exports = {
-  plugins: ['@vuepress/back-to-top', '@vuepress/pwa', {
+  plugins: [
+    '@vuepress/back-to-top',
+    '@vuepress/pwa',
+    '@vuepress/nprogress',
+    {
     serviceWorker: true,
     updatePopup: true
   }],
-  base: '/vuepress-theme-cool-starter/',
+  base: '/',
   theme: 'cool',
   //dest: 'dist',
   head: [
     ['link', { rel: 'icon', href: '/faviconCustom.ico' }],
+    // ['link', { rel: 'stylesheet', href: 'https://unpkg.com/spectre.css/dist/spectre.min.css' }],
+    ['link', { rel: 'stylesheet', href: 'https://unpkg.com/tailwindcss@^1.0/dist/tailwind.min.css' }],
+    // ['link', { rel: 'stylesheet', href: 'https://unpkg.com/spectre.css/dist/spectre-icons.min.css' }],
     ['link', { rel: 'stylesheet', href: 'https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.5.1/katex.min.css' }],
-	  ['link', {href: 'https://fonts.googleapis.com/icon?family=Material+Icons', rel :'stylesheet'}]
   ],
+  
   themeConfig: {
-    // logo: './myAvatar.png',
-    sidebar: { 
-	  '/' : [
-	     '',
-		 'admonitions',
-		 'diagrams',
-		 'charts-math',
-		 'custom-components'
-	  ]
-	},
+    logo: './llz_avatar.png',
+    search: false,
+    displayAllHeaders: true,
+    sidebar: {
+      '/tech-manage': [
+        {
+          title: 'tech-manage',   // 必要的
+          path: '/tech-manage/',      // 可选的, 应该是一个绝对路径
+          collapsable: false, // 可选的, 默认值是 true,
+          sidebarDepth: 2,    // 可选的, 默认值是 1
+          children: [
+            // '/home2'
+          ]
+        }
+      ],
+      '/tech-web/': [
+        {
+          title: '程序员高效搜索',   // 必要的
+          path: '/tech-resource/search',      // 可选的, 应该是一个绝对路径
+          collapsable: false, // 可选的, 默认值是 true,
+          sidebarDepth: 0,
+        },
+        {
+          title: '前端构建工具',   // 必要的
+          path: '/tech-web/web-tools/',      // 可选的, 应该是一个绝对路径
+          collapsable: false, // 可选的, 默认值是 true,
+          sidebarDepth: 1,
+          children:[
+            'web-tools/webpack-plugin'
+          ]
+        },
+        {
+          title: '前端架构',
+          path: '/tech-web/web-architecture/',
+          collapsable: false, 
+          sidebarDepth: 1, 
+          children: [
+            // '',
+            'web-architecture/micro-frontend',
+          ]
+        },
+        {
+          title: '前端测试',
+          path: '/tech-web/web-test/',
+          collapsable: false, 
+          sidebarDepth: 1, 
+          children: [
+            // '',
+            'web-test/jest',
+            'web-test/vue-test'
+          ]
+        },
+        {
+          title: '小程序',   // 必要的
+          path: '/tech-web/',      // 可选的, 应该是一个绝对路径
+          collapsable: false, // 可选的, 默认值是 true,
+          sidebarDepth: 1,    // 可选的, 默认值是 1
+          children: [
+            // ''
+          ]
+        },
+        
+      ],
+      '/tech-resource': [ //程序员导航
+        {
+          title: 'tech-resource',   // 必要的
+          path: '/tech-resource/',      // 可选的, 应该是一个绝对路径
+          collapsable: false, // 可选的, 默认值是 true,
+        }
+      ],
+      '/': [
+
+        '',
+        'admonitions',
+        'diagrams',
+        'charts-math',
+        'custom-components'
+      ]
+    },
     sidebarDepth: 2,
-    displayAllHeaders: true, // Default: false
+    // displayAllHeaders: true, // Default: false
     nav: [
-      { text: 'Home', link: '/' },
+      { text: '程序员.导航', link: '/tech-resource/' },
+      { text: '技术.前端', link: '/tech-web/' },
+      { text: '技术.管理', link: '/tech-manage/' },
       { text: 'Admonitions', link: '/admonitions' },
-      { text: 'Diagrams', link: '/diagrams'},
-      { text: 'Charts And Math', link:'/charts-math'},
-	  { text: 'Custom Components', link: '/custom-components'}
+      { text: 'Diagrams', link: '/diagrams' },
+      { text: 'Charts And Math', link: '/charts-math' },
+      { text: 'Custom Components', link: '/custom-components' }
     ],
     lastUpdated: 'Last Updated', // string | boolean
-      // Assumes GitHub. Can also be a full GitLab url.
-    repo: 'FriendlyUser/vuepress-theme-cool-starter',
-    // Customising the header label
-    // Defaults to "GitHub"/"GitLab"/"Bitbucket" depending on `themeConfig.repo`
+    repo: 'llz383455526/llzdev.site',
     repoLabel: 'Github',
-
-    // Optional options for generating "Edit this page" link
-
-    // if your docs are in a different repo from your main project:
-    // docsRepo: 'FriendlyUser/ENGRYear4BNotes',
-    // if your docs are not at the root of the repo:
     docsDir: 'docs',
     // if your docs are in a specific branch (defaults to 'master'):
     docsBranch: 'master',
     // defaults to false, set to true to enable
     editLinks: true,
     // custom text for edit link. Defaults to "Edit this page"
-    editLinkText: 'Help us improve this page!'
+    editLinkText: 'Help us improve this page!',
+    smoothScroll: true
 
   },
-  title: 'Vuepress Theme Cool Starter V1',
-  description: 'Simple Example project to get started with vuepress-theme-cool V1',
+  title: 'Llzdev site',
+  description: 'llz dev site',
   configureWebpack: {
     resolve: {
       alias: {
@@ -63,6 +133,10 @@ module.exports = {
     }
   },
   markdown: {
+    // options for markdown-it-anchor
+    anchor: { permalink: true },
+    // options for markdown-it-toc
+    toc: { includeLevel: [2,3,4] },
     extendMarkdown: md => {
       md.set({ html: true })
       md.use(require('markdown-it-katex'))
