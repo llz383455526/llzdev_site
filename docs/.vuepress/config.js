@@ -48,6 +48,7 @@ module.exports = {
           collapsable: false, // 可选的, 默认值是 true,
           sidebarDepth: 1,
           children:[
+            'web-tools/webpack-core',
             'web-tools/webpack-plugin'
           ]
         },
@@ -80,6 +81,14 @@ module.exports = {
           children: [
             // ''
           ]
+        },{
+          title: '问题与解决',   // 必要的
+          path: '/tech-web/web-problem/',      // 可选的, 应该是一个绝对路径
+          collapsable: false, // 可选的, 默认值是 true,
+          sidebarDepth: 1,    // 可选的, 默认值是 1
+          children: [
+            'web-problem/babel-polyfill'
+          ]
         },
         
       ],
@@ -105,10 +114,6 @@ module.exports = {
       { text: '程序员.导航', link: '/tech-resource/' },
       { text: '技术.前端', link: '/tech-web/' },
       { text: '技术.管理', link: '/tech-manage/' },
-      { text: 'Admonitions', link: '/admonitions' },
-      { text: 'Diagrams', link: '/diagrams' },
-      { text: 'Charts And Math', link: '/charts-math' },
-      { text: 'Custom Components', link: '/custom-components' }
     ],
     lastUpdated: 'Last Updated', // string | boolean
     repo: 'llz383455526/llzdev.site',
@@ -137,11 +142,13 @@ module.exports = {
     anchor: { permalink: true },
     // options for markdown-it-toc
     toc: { includeLevel: [2,3,4] },
+    typographer: true,
     extendMarkdown: md => {
       md.set({ html: true })
       md.use(require('markdown-it-katex'))
       md.use(require('markdown-it-plantuml'))
       md.use(require('markdown-it-admonition'))
+      md.use(require('markdown-it-task-lists'))
     }
   }
 }
