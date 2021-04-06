@@ -105,9 +105,6 @@ module.exports = {
       { text: '程序员.导航', link: '/tech-resource/' },
       { text: '技术.前端', link: '/tech-web/' },
       { text: '技术.管理', link: '/tech-manage/' },
-      { text: 'Admonitions', link: '/admonitions' },
-      { text: 'Diagrams', link: '/diagrams' },
-      { text: 'Charts And Math', link: '/charts-math' },
       { text: 'Custom Components', link: '/custom-components' }
     ],
     lastUpdated: 'Last Updated', // string | boolean
@@ -123,7 +120,7 @@ module.exports = {
     smoothScroll: true
 
   },
-  title: 'Llzdev site',
+  title: 'llzdev site',
   description: 'llz dev site',
   configureWebpack: {
     resolve: {
