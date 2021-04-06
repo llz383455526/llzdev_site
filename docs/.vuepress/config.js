@@ -48,6 +48,7 @@ module.exports = {
           collapsable: false, // 可选的, 默认值是 true,
           sidebarDepth: 1,
           children:[
+            'web-tools/webpack-core',
             'web-tools/webpack-plugin'
           ]
         },
@@ -79,6 +80,14 @@ module.exports = {
           sidebarDepth: 1,    // 可选的, 默认值是 1
           children: [
             // ''
+          ]
+        },{
+          title: '问题与解决',   // 必要的
+          path: '/tech-web/web-problem/',      // 可选的, 应该是一个绝对路径
+          collapsable: false, // 可选的, 默认值是 true,
+          sidebarDepth: 1,    // 可选的, 默认值是 1
+          children: [
+            'web-problem/babel-polyfill'
           ]
         },
         
@@ -134,11 +143,13 @@ module.exports = {
     anchor: { permalink: true },
     // options for markdown-it-toc
     toc: { includeLevel: [2,3,4] },
+    typographer: true,
     extendMarkdown: md => {
       md.set({ html: true })
       md.use(require('markdown-it-katex'))
       md.use(require('markdown-it-plantuml'))
       md.use(require('markdown-it-admonition'))
+      md.use(require('markdown-it-task-lists'))
     }
   }
 }

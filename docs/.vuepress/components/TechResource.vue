@@ -1,8 +1,8 @@
 <!--程序员导航-->
 <template>
-  <div class="my-nav container">
+  <div class="my-nav custom">
     <!-- <div class="block text-center py-4 text-2xl">程序员.导航</div> -->
-    <div class="card bg-orange-100 my-4" v-for="card in cardList" :key="card.title">
+    <div class="card bg-orange-100 " v-for="card in cardList" :key="card.title">
       <div class="block p-2 border-b">
         <span class="border-green-400 border-2 h-4"></span>
         <span class="ml-4">{{card.title}}</span>
@@ -20,6 +20,10 @@
   </div>
 </template>
 <script>
+// 高效搜索
+const searchResource = [
+  {name: '毕芳铺', url: 'https://www.iizhi.cn/'}
+]
 // 划水网站
 const huashuiList = [
   {name: '投资界', url: 'https://www.pedaily.cn/index1.shtml'}
@@ -70,6 +74,10 @@ export default {
     return {
       cardList: [
         {
+          title: '搜索工具(搜课程)',
+          urlList: searchResource
+        },
+        {
           title: '划水网站',
           urlList: huashuiList
         },
@@ -103,12 +111,16 @@ export default {
   @import "tailwindcss/components";
 
   @import "tailwindcss/utilities"; */
-/* .theme-default-content{
-    margin: 0 !important;
-  } */
+.theme-default-content{
+    margin: 0  auto !important;
+    max-width: 90% !important;
+  }
 
   a:hover {
     color: #e67e22;
     text-decoration-line: none !important;
+  }
+  .card {
+    margin: 10px 0;
   }
 </style>
